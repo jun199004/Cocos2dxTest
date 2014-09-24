@@ -1,6 +1,8 @@
 #pragma once
 
-
+/************************************************************************/
+/* Á£×ÓÏµÍ³                                                                     */
+/************************************************************************/
 #include "cocos2d.h"
 USING_NS_CC;
 typedef enum   ¢Ù
@@ -31,4 +33,7 @@ public:
 	bool onTouchBeganss(Touch* touch, Event* ev);
 	void onTouchMovess(Touch* touch, Event* ev);
 	void onTouchEndss(Touch* touch, Event* ev);
+
+private:
+	MotionStreak*		_streak;
 };

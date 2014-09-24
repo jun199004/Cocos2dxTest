@@ -23,20 +23,21 @@ bool SpriteBatchNodeLayer::init()
 	//}
 	//this->addChild(bulletBatchNode);
 //////////////////////////////////////////////////////////////////////////
-	auto node = MyNode::create();
+	//auto node = MyNode::create();
 	for (int i = 0; i < 1000;i++)
 	{
 		float xpos = CCRANDOM_0_1()*visibleSize.width;
 		float ypos = CCRANDOM_0_1()*visibleSize.height;
-		Sprite* sprite = Sprite::create("CloseNormal.png");
+		//Sprite* sprite = Sprite::create("CloseNormal.png");
 		//Sprite* sprite2 = Sprite::create("CloseSelected.png");
-		node->addChild(sprite);
+		auto node = MyNode::create();
+		this->addChild(node);
 		//this->addChild(sprite2);
-		sprite->setPosition(Vec2(xpos,ypos));
+		node->setPosition(Vec2(xpos,ypos));
 	}
-	Sprite* sprite2 = Sprite::create("CloseSelected.png");
-	node->addChild(sprite2);
-	this->addChild(node);
+	//Sprite* sprite2 = Sprite::create("CloseSelected.png");
+	//node->addChild(sprite2);
+	//this->addChild(node);
 	return true;
 }
 
@@ -54,5 +55,9 @@ bool MyNode::init()
 	{
 		return false;
 	}
+	auto coin = Sprite::create("coin.png");
+	coin->setScale(0.2);
+	this->addChild(coin);
+	//this->addChild(DrawNode::create());
 	return true;
 }

@@ -3,6 +3,8 @@
 #include "LoginLayer.h"
 #include "SpriteBatchNodeTest.h"
 #include "ParticileTestLayer.h"
+#include "MotionStreakSpriteTestLayer.h"
+#include "PhysicBallLayer.h"
 
 USING_NS_CC;
 
@@ -31,8 +33,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-	auto scene = ParticleTestLayer::createScene();
-
+	//auto scene = PhysicBallLayer::createScene();
+	auto scene = MotionStreakSpriteTestLayer::createScene();
     // run
     director->runWithScene(scene);
 

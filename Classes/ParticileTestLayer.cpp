@@ -13,7 +13,7 @@ bool ParticleTestLayer::init()
 
 	/////////////////////////////
 
-	//
+	
 	auto node = Sprite::create("CloseNormal.png");
 	node->setPosition(Vec2(visibleSize.width / 2.0, visibleSize.height / 2.0));
 	auto system2 = ParticleSun::create();// CCParticleSystemQuad::create("ballfire.plist");
@@ -23,6 +23,23 @@ bool ParticleTestLayer::init()
 	node->setOpacity(0);
 	funEventTouch(node);
 	return true;
+
+
+	//auto node = Sprite::create("CloseNormal.png");
+	//node->setPosition(Vec2(visibleSize.width / 2.0, visibleSize.height / 2.0));
+	//this->addChild(node);
+	////////////////////////////////////////////////////////////////////////////
+	//_streak = MotionStreak::create(0.8, 10, node->getContentSize().width, ccWHITE, "CloseNormal.png");
+	//_streak->setPosition(Vec2(visibleSize.width / 2.0, visibleSize.height / 2.0));
+	//this->addChild(_streak, 1);
+	//auto listener = EventListenerTouchOneByOne::create();
+	//listener->onTouchBegan = CC_CALLBACK_2(ParticleTestLayer::onTouchBeganss, this);
+	//listener->onTouchMoved = CC_CALLBACK_2(ParticleTestLayer::onTouchMovess, this);
+	//listener->onTouchEnded = CC_CALLBACK_2(ParticleTestLayer::onTouchEndss, this);
+	//listener->setSwallowTouches(true);//是否向下传递
+	//this->_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, node);
+	//return true;
+
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -103,7 +120,7 @@ bool ParticleTestLayer::onTouchBeganss(Touch* touch, Event* ev)
 	if (rect.containsPoint(locationInNode))
 	{
 		//label->setString("onTouchBegan......");
-		target->setOpacity(0);
+		//target->setOpacity(0);
 		return true;
 	}
 	return false;
@@ -114,12 +131,13 @@ void ParticleTestLayer::onTouchMovess(Touch* touch, Event* ev)
 {
 	auto target = static_cast<Sprite*>(ev->getCurrentTarget());
 	target->setPosition(target->getPosition() + touch->getDelta());
+	//_streak->setPosition(target->getPosition());
 	//label->setString("onTouchMoved......");
 }
 
 void ParticleTestLayer::onTouchEndss(Touch* touch, Event* ev)
 {
 	auto target = static_cast<Sprite*>(ev->getCurrentTarget());
-	target->setOpacity(0);
+	//target->setOpacity(0);
 	//label->setString("onTouchEnded......");
 }
